@@ -1,4 +1,4 @@
-FROM nvidia/cuda:latest
+FROM ubuntu:14.04
 MAINTAINER Rui Wu
 LABEL description="Wells Fargo Data Mining."
 
