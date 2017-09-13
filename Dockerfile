@@ -6,8 +6,10 @@ RUN apt-get update -y
 RUN apt-get install -y python-pip python-dev build-essential cmake gdal-bin libgdal-dev
 
 
-COPY . /var/www/data_mining
-WORKDIR /var/www/data_mining
+#copy source code
+COPY . /data_mining
+WORKDIR /data_mining
+ENV PYTHONPATH /var/www/data_mining
 
 #install requirements
 RUN pip install -r requirements.txt
