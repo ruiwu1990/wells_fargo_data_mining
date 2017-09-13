@@ -12,7 +12,7 @@ WORKDIR /data_mining
 ENV PYTHONPATH /var/www/data_mining
 
 #install requirements
-RUN cd /var/www/data_mining && pip install -r requirements.txt
+RUN pip install -r /var/www/data_mining/requirements.txt
 
 EXPOSE 5000
 ENV DATA_MINING_PORT 80
