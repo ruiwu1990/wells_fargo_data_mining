@@ -16,7 +16,7 @@ If you have created the virtual environment, then use this commend to enter it
 virtualenv dev && source dev/bin/activate
 ```
 
-Here is the command to install the requirements
+Here is the command to install the backend requirements
 ```
 pip install -r requirements.txt
 ```

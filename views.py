@@ -10,8 +10,7 @@ app_path = os.path.dirname(os.path.abspath(__file__))
 @app.route('/')
 def index():
 	return render_template('index.html')
-
-
+	# return render_template('wf-dynamic-ad/src/index.html')
 
 @app.route('/api/test')
 def test():

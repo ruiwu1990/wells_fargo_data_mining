@@ -81,23 +81,24 @@ categories
 5 [8000,10000)
 6 [10000, inf]
 '''
-total_len = df.shape[0]
-df['sav_cat'] = pd.Series(np.random.randn(total_len), index=df.index)
 
-for i in range(total_len):
-	# remove 2016 from time
-	df['asof_yyyymm'][i] = df['asof_yyyymm'][i]-201600
-	if df['sav_bal_altered'][i]>=0 and df['sav_bal_altered'][i]<2000:
-		df['sav_cat'][i] = 1
-	elif df['sav_bal_altered'][i]>=2000 and df['sav_bal_altered'][i]<4000:
-		df['sav_cat'][i] = 2
-	elif df['sav_bal_altered'][i]>=4000 and df['sav_bal_altered'][i]<6000:
-		df['sav_cat'][i] = 3
-	elif df['sav_bal_altered'][i]>=6000 and df['sav_bal_altered'][i]<8000:
-		df['sav_cat'][i] = 4
-	elif df['sav_bal_altered'][i]>=8000 and df['sav_bal_altered'][i]<10000:
-		df['sav_cat'][i] = 5
-	else:
-		df['sav_cat'][i] = 6
+# total_len = df.shape[0]
+# df['sav_cat'] = pd.Series(np.random.randn(total_len), index=df.index)
 
-df.to_csv(path_or_buf='test.csv')
+# for i in range(total_len):
+# 	# remove 2016 from time
+# 	df['asof_yyyymm'][i] = df['asof_yyyymm'][i]-201600
+# 	if df['sav_bal_altered'][i]>=0 and df['sav_bal_altered'][i]<10000:
+# 		df['sav_cat'][i] = 1
+# 	elif df['sav_bal_altered'][i]>=10000 and df['sav_bal_altered'][i]<40000:
+# 		df['sav_cat'][i] = 2
+# 	elif df['sav_bal_altered'][i]>=40000 and df['sav_bal_altered'][i]<6000:
+# 		df['sav_cat'][i] = 3
+# 	elif df['sav_bal_altered'][i]>=6000 and df['sav_bal_altered'][i]<8000:
+# 		df['sav_cat'][i] = 4
+# 	elif df['sav_bal_altered'][i]>=8000 and df['sav_bal_altered'][i]<10000:
+# 		df['sav_cat'][i] = 5
+# 	else:
+# 		df['sav_cat'][i] = 6
+
+# df.to_csv(path_or_buf='test.csv')
