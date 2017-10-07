@@ -9,6 +9,7 @@ import json
 import shutil
 import numpy as np
 from datetime import datetime
+import random
 
 import matplotlib.pyplot as plt
 from matplotlib import cm
@@ -72,14 +73,61 @@ def convert_csv_into_libsvm(input_file,output_file,label_index=0,skip_headers=Tr
 		new_line = construct_line( label, line )
 		o.write( new_line )
 
+def def_label(input_num):
+	'''
+	'''
+	if input_num>=0 and input_num<10000:
+		return 1
+	elif input_num>=10000 and input_num<40000:
+		return 2
+	elif input_num>=40000 and input_num<100000:
+		return 3
+	elif input_num>=100000 and input_num<200000:
+		return 4
+	elif input_num>=200000 and input_num<550000:
+		return 5
+	else:
+		return 6
+
+def merge_same_user_salary(filename,output_file):
+	'''
+
+	'''
+	fp = open(output_file, 'w')
+	fp.write('mask_id,checking1,saving1,checking1_label,saving1_label,checking2,saving2,checking2_label,saving2_label,checking3,saving3,checking3_label,saving3_label,checking4,saving4,checking4_label,saving4_label,checking5,saving5,checking5_label,saving5_label,checking6,saving6,checking6_label,saving6_label\n')
+	df = pd.read_csv(filename)
+	mask_id = df['masked_id'].tolist()
+	# mask_id = map(lambda s: s.strip(), mask_id)
+	saving_money = df['sav_bal_altered'].tolist()
+	# saving_money = map(lambda s: s.strip(), saving_money)
+	checking_money = df['check_bal_altered'].tolist()
+	# checking_money = map(lambda s: s.strip(), checking_money)
+	cur_id = mask_id[0]
+	tmp_row = [cur_id]
+	for id_count in range(len(mask_id)):
+		if  mask_id[id_count] == cur_id:
+			tmp_row.append(checking_money[id_count])
+			tmp_row.append(saving_money[id_count])
+			tmp_row.append(def_label(checking_money[id_count]))
+			tmp_row.append(def_label(saving_money[id_count]))
+		else:
+			# checking_label = def_label(tmp_row[-2])
+			# saving_label = def_label(tmp_row[-1])
+			# marking label
+			fp.write(','.join([str(m) for m in tmp_row])+'\n')
+			# fp.write(','.join([str(m) for m in tmp_row])+','+str(checking_label)+','+str(saving_label)+'\n')
+			# print tmp_row
+			cur_id = mask_id[id_count]
+			tmp_row = [cur_id,checking_money[id_count],saving_money[id_count],def_label(checking_money[id_count]),def_label(saving_money[id_count])]
+	fp.close()
 '''
 categories
-1 [0,2000)
-2 [2000,4000)
-3 [4000,6000)
-4 [6000,8000)
-5 [8000,10000)
-6 [10000, inf]
+1 [0,10000)
+2 [10000,40000)
+3 [40000,100000)
+4 [100000,200000)
+5 [200000,550000)
+6 [550000, inf]
 '''
 
 # total_len = df.shape[0]
@@ -92,11 +140,11 @@ categories
 # 		df['sav_cat'][i] = 1
 # 	elif df['sav_bal_altered'][i]>=10000 and df['sav_bal_altered'][i]<40000:
 # 		df['sav_cat'][i] = 2
-# 	elif df['sav_bal_altered'][i]>=40000 and df['sav_bal_altered'][i]<6000:
+# 	elif df['sav_bal_altered'][i]>=40000 and df['sav_bal_altered'][i]<100000:
 # 		df['sav_cat'][i] = 3
-# 	elif df['sav_bal_altered'][i]>=6000 and df['sav_bal_altered'][i]<8000:
+# 	elif df['sav_bal_altered'][i]>=100000 and df['sav_bal_altered'][i]<200000:
 # 		df['sav_cat'][i] = 4
-# 	elif df['sav_bal_altered'][i]>=8000 and df['sav_bal_altered'][i]<10000:
+# 	elif df['sav_bal_altered'][i]>=200000 and df['sav_bal_altered'][i]<550000:
 # 		df['sav_cat'][i] = 5
 # 	else:
 # 		df['sav_cat'][i] = 6
