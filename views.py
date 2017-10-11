@@ -10,7 +10,8 @@ data_file = 'data/test.csv'
 input_file = 'data/test.libsvm'
 
 # remove when dokerize
-spark_submit_location = '/home/host0/Desktop/hadoop/spark-2.1.0/bin/spark-submit'
+# spark_submit_location = '/home/host0/Desktop/hadoop/spark-2.1.0/bin/spark-submit'
+spark_submit_location = 'spark-submit'
 
 @app.route('/')
 def index():
