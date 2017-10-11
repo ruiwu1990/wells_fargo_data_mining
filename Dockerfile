@@ -8,8 +8,9 @@ RUN apt-get install -y python-pip python-dev build-essential cmake gdal-bin libg
 #copy source code
 COPY . /data_mining
 WORKDIR /data_mining
-RUN pip install -r requirements.txt
 ENV PYTHONPATH /data_mining
+
+RUN pip install -r requirements.txt
 
 EXPOSE 5000
 ENV DATA_MINING_PORT 80
