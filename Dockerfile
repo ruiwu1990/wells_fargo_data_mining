@@ -1,4 +1,4 @@
-FROM sequenceiq/hadoop-docker:2.7.0
+FROM hellgate75/apache-spark
 MAINTAINER Rui Wu
 LABEL description="Wells Fargo Data Mining."
 
