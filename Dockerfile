@@ -3,7 +3,7 @@ MAINTAINER Rui Wu
 LABEL description="Wells Fargo Data Mining."
 
 RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential cmake gdal-bin libgdal-dev
+RUN apt-get install -y python-pip python-dev build-essential cmake gdal-bin libgdal-dev python-setuptools
 
 #copy source code
 COPY . /data_mining
