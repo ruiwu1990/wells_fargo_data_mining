@@ -121,6 +121,7 @@ def merge_same_user_salary(filename,output_file):
 			tmp_row = [cur_id,checking_money[id_count],saving_money[id_count],def_label(checking_money[id_count]),def_label(saving_money[id_count])]
 	fp.close()
 
+
 def read_last_line(filename):
 	'''
 	this function reads the last 
