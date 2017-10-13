@@ -131,6 +131,25 @@ def read_last_line(filename):
 	line_list = fp.readlines()
 	fp.close()
 	return line_list[-1]
+
+def suggest_product(label):
+	'''
+	'''
+	if label == 0:
+		return 'Wells Fargo CD is a good choice'
+	elif label == 1:
+		return 'Wells Fargo CD is a good choice'
+	elif label == 2:
+		return 'Wells Fargo $100,000 mortgage is a good choice'
+	elif label == 3:
+		return 'Wells Fargo $400,000 mortgage is a good choice'
+	elif label == 4:
+		return 'Wells Fargo $1000,000 mortgage is a good choice'
+	elif label == 5:
+		return 'Wells Fargo $2000,000 mortgage is a good choice'
+	elif label == 6:
+		return 'Wells Fargo $5000,000 mortgage is a good choice'
+
 '''
 categories
 1 [0,10000)

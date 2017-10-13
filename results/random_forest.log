@@ -1,21 +1,2 @@
-loop 0: accuracy is:0.733333333333
-loop 1: accuracy is:0.875
-loop 2: accuracy is:0.866666666667
-loop 3: accuracy is:0.833333333333
-loop 4: accuracy is:0.875
-loop 5: accuracy is:0.875
-loop 6: accuracy is:0.769230769231
-loop 7: accuracy is:1.0
-loop 8: accuracy is:0.928571428571
-loop 9: accuracy is:0.866666666667
-loop 10: accuracy is:0.625
-loop 11: accuracy is:0.8125
-loop 12: accuracy is:0.789473684211
-loop 13: accuracy is:0.714285714286
-loop 14: accuracy is:0.866666666667
-loop 15: accuracy is:0.9
-loop 16: accuracy is:0.8
-loop 17: accuracy is:0.894736842105
-loop 18: accuracy is:0.681818181818
-loop 19: accuracy is:0.764705882353
-Test Error = 17.6400541538%
+[4.0, 4.0, 5.0, 5.0, 5.0]
+2

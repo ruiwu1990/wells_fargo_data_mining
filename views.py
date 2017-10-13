@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory, request, jsonify
+from flask import Flask, render_template, send_from_directory, request, jsonify, send_file
 import util, os, subprocess
 # import shutil
 # import time
@@ -47,14 +47,15 @@ def predict_next_month(previous_saving_account=''):
 
 		predicted_group = int(util.read_last_line(log_path))
 		if predicted_group > saving_list[-1]:
-			change = 1
+			change = 'goes up'
 		elif predicted_group < saving_list[-1]:
-			change = -1
+			change = 'goes down'
 		else:
-			change = 0
+			change = 'does not change'
 		return  jsonify(
 				        classification=predicted_group,
-						change=change
+						change=change,
+						suggest = util.suggest_product(predicted_group)
 					)
 
 @app.route('/api/cross_validation')
@@ -76,7 +77,8 @@ def cross_validation():
 			command, stdout=process_out, stderr=err_out, cwd=app_path)
 	# wait until the process finishes
 	process.wait()
-	return util.read_last_line(log_path)
+	# return util.read_last_line(log_path)
+	return send_file(app_path+'/'+log_path)
 
 
 if __name__ == '__main__':
