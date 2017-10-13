@@ -5,7 +5,8 @@ Here are the possible methods:
 http://spark.apache.org/docs/latest/mllib-classification-regression.html
 ```
 
-#Docker setup method
+# Docker setup method
+
 First setup docker by following [Docker Setup Instructions](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-using-the-repository)
 
 Second just one line command to setup all the things:
@@ -20,7 +21,8 @@ sudo docker run --name rui -h 0.0.0.0 -p 5000:5000  ruiwu1990/wells_fargo_data_m
 ```
 
 
-#Standard installation method
+# Standard installation method
+
 First create a virtual environment
 ```
 mkvirtualenv -p python2.7 dev
