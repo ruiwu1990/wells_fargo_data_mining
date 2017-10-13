@@ -36,5 +36,6 @@ tmp_row = pyspark.sql.Row(features=pyspark.ml.linalg.SparseVector(5,{0: saving_l
 new_data = sc.parallelize([tmp_row]).toDF()
 predictions = model.transform(new_data)
 
-print("The user should belong to group: " +str(int(predictions.toPandas()['prediction'].tolist()[0])))
+# print("The user should belong to group: " +str(int(predictions.toPandas()['prediction'].tolist()[0])))
+print(str(int(predictions.toPandas()['prediction'].tolist()[0])))
 
