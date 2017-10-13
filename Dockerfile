@@ -1,4 +1,4 @@
-FROM hellgate75/apache-spark
+FROM josepainumkal/docker-pyspark
 MAINTAINER Rui Wu
 LABEL description="Wells Fargo Data Mining."
 
