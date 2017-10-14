@@ -23,6 +23,8 @@ sudo docker run --name rui -h 0.0.0.0 -p 5000:5000  ruiwu1990/wells_fargo_data_m
 
 # Standard installation method
 
+Be sure you have Apark Spark installed in your machine. If not, please follow the [Apark Spark Setup Instructions](https://spark.apache.org/downloads.html)
+
 First create a virtual environment
 ```
 mkvirtualenv -p python2.7 dev
